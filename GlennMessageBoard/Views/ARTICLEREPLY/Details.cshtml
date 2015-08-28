@@ -1,0 +1,50 @@
+﻿@model GlennMessageBoard.Models.ARTICLEREPLY
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ARTICLEREPLY</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BODY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BODY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BUD_DTM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BUD_DTM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AUTHOR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AUTHOR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ARTICLE.TITLE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ARTICLE.TITLE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

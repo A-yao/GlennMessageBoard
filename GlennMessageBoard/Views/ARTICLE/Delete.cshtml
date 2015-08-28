@@ -1,0 +1,72 @@
+﻿@model GlennMessageBoard.Models.ARTICLE
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ARTICLE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TITLE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TITLE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BODY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BODY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BUD_DTM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BUD_DTM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UPD_DTM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UPD_DTM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AUTHOR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AUTHOR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Forum.TITLE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Forum.TITLE)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
