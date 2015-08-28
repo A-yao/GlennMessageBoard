@@ -1,0 +1,41 @@
+﻿@model GlennMessageBoard.Models.ARTICLE
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Html.DisplayFor(model => model.Forum.TITLE)</h2>
+
+<p>
+    @Html.ActionLink("編輯", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("回覆", "Create", "ARTICLEREPLY", new { ARTICLE_ID = Model.ID }, null) |
+    @Html.ActionLink("刪除", "Delete", new { id = Model.ID }) |
+    @Html.ActionLink("回上一層", "Details", "Forum", new { id = Model.FORUM_ID }, null)
+</p>
+<div>
+    <hr />
+    <header><h1>@Html.DisplayFor(model => model.TITLE)</h1></header>
+    <div>
+        <author itemprop="author" class="author">
+            @Html.DisplayFor(model => model.AUTHOR)
+        </author>
+        <div class="authMsg">
+            <span>建立日期：</span>
+            <span class="postDateLine">@Html.DisplayFor(model => model.BUD_DTM)</span>
+            <span>修改日期：</span>
+            <span class="postDateLine">@Html.DisplayFor(model => model.UPD_DTM)</span>
+        </div>
+    </div>
+    <div>
+        <h3>
+            @Html.DisplayFor(model => model.BODY)
+        </h3>
+    </div>
+</div>
+@Html.Partial("_ARTICLEREPLYlist", Model.ARTICLEREPLY.OrderBy(x => x.BUD_DTM).ToList())
+
+<p>
+    @Html.ActionLink("編輯", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("回覆", "Create", "ARTICLEREPLY", new { ARTICLE_ID = Model.ID }, null) |
+    @Html.ActionLink("回上一層", "Details", "Forum", new { id = Model.FORUM_ID }, null)
+</p>
