@@ -1,0 +1,26 @@
+﻿@model IEnumerable<GlennMessageBoard.Models.ARTICLEREPLY>
+<table class="table">
+    @{
+        int cnt = 0;
+    }
+    @foreach (var item in Model)
+    {
+        cnt += 1;
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AUTHOR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BODY)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BUD_DTM)
+            </td>
+            <td>
+                @cnt 樓 |
+                @Html.ActionLink("編輯", "Edit","ARTICLEREPLY", new { id = item.ID },null) |
+                @Html.ActionLink("刪除", "Delete", "ARTICLEREPLY", new { id = item.ID },null)
+            </td>
+        </tr>
+    }
+</table>

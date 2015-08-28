@@ -1,22 +1,22 @@
-﻿@model GlennMessageBoard.Models.ARTICLE
+﻿@model GlennMessageBoard.Models.ARTICLEREPLY
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Create";
 }
 
-<h2>編輯</h2>
+<h2>回覆</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>發文</h4>
+        <h4>ARTICLEREPLY</h4>
+        
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID)
-        @Html.HiddenFor(model => model.FORUM_ID)
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <input type="hidden" id="article_ID" name="article_ID" value="@ViewData["ARTICLE_ID"]" />
 
         <div class="form-group">
             @Html.LabelFor(model => model.AUTHOR, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -26,14 +26,6 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.TITLE, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TITLE, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TITLE, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.BODY, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.BODY, new { htmlAttributes = new { @class = "form-control" } })
@@ -41,18 +33,19 @@
             </div>
         </div>
 
+
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default">
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
+    @*<div>
+        @Html.ActionLink("回上一層", "details", "article", new { id = Model.ID }, null)
+    </div>*@
 }
 
-<div>
-    @Html.ActionLink("回上一層", "Details", "Forum", new { id = Model.FORUM_ID},null)
-</div>
-           
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

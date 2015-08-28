@@ -1,0 +1,16 @@
+﻿@model GlennMessageBoard.Models.Forum
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Html.DisplayFor(model => model.TITLE)</h2>
+<p>
+    @Html.ActionLink("發文", "Create", "ARTICLE", new { FORUM_ID = Model.ID }, null) |
+    @Html.ActionLink("回上一層", "Index")
+</p>
+@Html.Partial("_ARTICLElist", Model.ARTICLE.OrderBy(x => x.BUD_DTM).ToList())
+<p>
+    @Html.ActionLink("發文", "Create", "ARTICLE", new { FORUM_ID = Model.ID }, null) |
+    @Html.ActionLink("回上一層", "Index")
+</p>

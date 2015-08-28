@@ -1,0 +1,29 @@
+﻿@model IEnumerable<GlennMessageBoard.Models.ARTICLE>
+<table class="table">
+    @{
+        int cnt = 0;
+    }
+    @foreach (var item in Model)
+    {
+        cnt += 1;
+        <tr>
+            <td style="width:50px">@cnt</td>
+            <td>
+                @Html.ActionLink(item.BODY, "Details", "ARTICLE", new { id = item.ID }, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AUTHOR)
+            </td>
+            <td>
+                2015/8/28 上午 11:24:43
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UPD_DTM)
+            </td>
+            <td>
+                @Html.ActionLink("編輯", "Edit", "ARTICLE", new { id = item.ID }, null) |
+                @Html.ActionLink("刪除", "Delete", "ARTICLE", new { id = item.ID }, null)
+            </td>
+        </tr>
+    }
+</table>
